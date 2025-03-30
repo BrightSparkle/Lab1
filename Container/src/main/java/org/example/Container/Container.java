@@ -1,23 +1,28 @@
 package org.example.Container;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class Container {
+public class Container implements Iterable<Integer> {
 
-    private int[] elements;
+    private Integer[] elements;
     private int size;
 
     public Container() {
-        elements = new int[10];
+        elements = new Integer[10];
         size = 0;
     }
 
-    public void add(int value) {
+    public void add(Integer value) {
+        if (value == null) {
+            throw new IllegalArgumentException("Null values are not allowed");
+        }
         if (size == elements.length) {
             increaseCapacity();
         }
         elements[size++] = value;
     }
 
-    public int get(int index) {
+    public Integer get(int index) {
         checkIndex(index);
         return elements[index];
     }
@@ -28,7 +33,7 @@ public class Container {
         if (numMoved > 0) {
             System.arraycopy(elements, index + 1, elements, index, numMoved);
         }
-        size--;
+        elements[--size] = null;
     }
 
     public int size() {
@@ -43,8 +48,31 @@ public class Container {
 
     private void increaseCapacity() {
         int newCapacity = elements.length * 2;
-        int[] newArray = new int[newCapacity];
+        Integer[] newArray = new Integer[newCapacity];
         System.arraycopy(elements, 0, newArray, 0, size);
         elements = newArray;
+    }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new IntIterator();
+    }
+
+    private class IntIterator implements Iterator<Integer> {
+
+        private int cursor = 0;
+
+        @Override
+        public boolean hasNext() {
+            return cursor < size;
+        }
+
+        @Override
+        public Integer next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            return elements[cursor++];
+        }
     }
 }
