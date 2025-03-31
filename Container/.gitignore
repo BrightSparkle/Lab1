@@ -1,9 +1,17 @@
+### Build outputs ###
 target/
+build/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### IntelliJ IDEA ###
+### Maven ###
+pom.xml.versionsBackup
+dependency-reduced-pom.xml
+
+### IDE ###
+
+# IntelliJ IDEA
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
@@ -12,7 +20,7 @@ target/
 *.iml
 *.ipr
 
-### Eclipse ###
+# Eclipse
 .apt_generated
 .classpath
 .factorypath
@@ -21,18 +29,45 @@ target/
 .springBeans
 .sts4-cache
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
+# VS Code
 .vscode/
 
-### Mac OS ###
+### Logs ###
+*.log
+
+### Environment ###
+.env
+*.env
+
+### Temporary files ###
+*.tmp
+*.bak
+
+### System files ###
+# MacOS
 .DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+### Gradle (дополнительно) ###
+.gradle/
+**/build/
+!src/**/build/
+
+### Other ###
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+.recommenders/
