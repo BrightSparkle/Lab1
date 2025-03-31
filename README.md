@@ -1,4 +1,4 @@
-# IntContainer
+# Container
 
 [![Java Version](https://img.shields.io/badge/Java-17%2B-blue)](https://openjdk.java.net/)
 [![JUnit5](https://img.shields.io/badge/JUnit-5.8.2-brightgreen)](https://junit.org/junit5/)
@@ -27,4 +27,4 @@
 
 1. Склонируйте репозиторий:
 ```bash
-git clone https://github.com/yourusername/int-container.git
+git clone [https://github.com/BrightSparkle/Lab1]
